@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+           crossorigin=""/>
+
+         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+           crossorigin=""></script>
+
+    </head>
+
+    <body>
+        <div id="map" style="height: 500px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [38.16, -96.96],
+              zoom: 4
+          });
+
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+               attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+               maxZoom: 4,
+               minZoom: 4
+            }).addTo(map);
+			
+			var ChicagoIcon = L.icon({
+				iconUrl: 'house.png', // url that links to the icon image file, saved in the same folder as the current page 
+				iconSize:     [32, 32], // size of the icon image in pixels
+				iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+				popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+			});
+			
+			var SpringGreenIcon = L.icon({
+				iconUrl: 'alpaca.png', // url that links to the icon image file, saved in the same folder as the current page 
+				iconSize:     [32, 32], // size of the icon image in pixels
+				iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+				popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+			});
+
+			var BrooklynIcon = L.icon({
+				iconUrl: 'brooklyn-bridge.png', // url that links to the icon image file, saved in the same folder as the current page 
+				iconSize:     [32, 32], // size of the icon image in pixels
+				iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+				popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+			});
+			
+			var LoganIcon = L.icon({
+				iconUrl: 'mountain.png', // url that links to the icon image file, saved in the same folder as the current page 
+				iconSize:     [32, 32], // size of the icon image in pixels
+				iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+				popupAnchor:  [0, -10] // point from which the popup should open, relative to the iconAnchor
+			});
+			
+			var marker1 = L.marker([41.999861, -87.764530], {icon: ChicagoIcon}).addTo(map);
+			var marker2 = L.marker([43.165457, -90.039303], {icon: SpringGreenIcon}).addTo(map);
+			var marker3 = L.marker([40.664153, -73.982438], {icon: BrooklynIcon}).addTo(map);					
+			var marker4 = L.marker([41.719324, -111.831803], {icon: LoganIcon}).addTo(map);
+					
+			var pic1 = '<img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Chicago_from_North_Avenue_Beach_June_2015_panorama_2.jpg" alt="I live in Chicago" width="175">';
+			var pic2 = '<img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Alpaca_%2831562329701%29.jpg" alt="Parents live on Percussion Rock Alpaca Farm" width="75">';
+			var pic3 = '<img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Dumbo_Neighborhood_in_Brooklyn%2C_NYC.jpg" alt="Sister lives in Brooklyn" width="90">';
+			var pic4 = '<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Logan2.jpg" alt="Brother lives in Logan, UT" width="140">';
+			
+			
+			marker1.bindPopup('<p style="color:blue; font-weight:bold"> I live in Chicago </p>' + pic1);
+			marker2.bindPopup('<p style="color:seagreen; font-weight:bold"> Parents live in Spring Green, WI</p>' + pic2);
+			marker3.bindPopup('<p style="color:orange; font-weight:bold"> Sister lives in Brooklyn, NY</p>' + pic3);
+			marker4.bindPopup('<p style="color:purple; font-weight:bold"> Brother lives in Logan, UT</p>' + pic4);
+		
+		</script>
+   </body>
+</html>
+
+
